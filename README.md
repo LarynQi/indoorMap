@@ -1,2 +1,2 @@
-# indoorMap
+# uMap
 TreeHacks 2020
