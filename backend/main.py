@@ -22,7 +22,7 @@ def main(start, destinationName, level, building): #start tuple contains lat/lon
             x = square.x
             y = square.y
             floorPlan[x][y] = square.valid 
-    print(floorPlan)
+    # print(floorPlan)
     # print(currentFloor.length, currentFloor.width)
     #get the latitude/longitude of the entrance; make an arbitrary scale 
 # 1> invalid numbers
@@ -51,9 +51,14 @@ def main(start, destinationName, level, building): #start tuple contains lat/lon
     minPath = min(paths, key=len)
     for coord in minPath:
         floorPlan[coord[0]][coord[1]] = 9
-    print(minPath)
     print(floorPlan)
+    for i in range(len(minPath)):
+        print(minPath[i])
+        if i + 1 != len(minPath):
+            print("↓")
+        else:
+            print("You've arrived at the " + destinationName + "!")
 
 
 if __name__ == '__main__':
-    main((8, 2), "bathroom", 1, generate()) #DEMO
+    main((15, 2), "Cafe Kitchen", 1, generateHuang()) #DEMO

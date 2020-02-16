@@ -1,7 +1,7 @@
 from building import *
 from floor import *
 from square import *
-def generate():
+def generateHuang():
     huangCenter = Building(2, 0, "Huang Center")
     floorOne = Floor(1, 31, 34)
     
@@ -288,46 +288,46 @@ def generate():
         col = 16
         add = Wall(row, col, "wall")
         floorOne.addSquare(add, add.name)
-    count = 0
-    check = {}
-    for row in range(34):
-        for col in range(31):
-            check[(row, col)] = 0
-    for wall in floorOne.squares["wall"]:
-        count += 1
-        check[(wall.x, wall.y)] = check.get((wall.x, wall.y), 0) + 1
-        #print("(" + str(wall.x) + ", " + str(wall.y) + ")")
-    for ex in floorOne.squares["exit"]:
-        count += 1
-        check[(ex.x, ex.y)] = check.get((ex.x, ex.y), 0) + 1
-    for stair in floorOne.squares["stair"]:
-        count += 1
-        check[(stair.x, stair.y)] = check.get((stair.x, stair.y), 0) + 1
-        #print("(" + str(ex.x) + ", " + str(ex.y) + ")")
-    for path in floorOne.squares["path"]:
-        count += 1
-        check[(path.x, path.y)] = check.get((path.x, path.y), 0) + 1
-        #print("(" + str(path.x) + ", " + str(path.y) + ")")
-    for elevator in floorOne.squares["elevator"]:
-        count += 1
-        check[(elevator.x, elevator.y)] = check.get((elevator.x, elevator.y), 0) + 1
-    for br in floorOne.squares["bathroom"]:
-        count += 1
-        check[(br.x, br.y)] = check.get((br.x, br.y), 0) + 1
-    for room in floorOne.squares["Vending Machine/Recycling/ATM"]:
-        count += 1
-        check[(room.x, room.y)] = check.get((room.x, room.y), 0) + 1
-    for kitchen in floorOne.squares["Cafe Kitchen"]:
-        count += 1
-        check[(kitchen.x, kitchen.y)] = check.get((kitchen.x, kitchen.y), 0) + 1
-    for coord in check.keys():
-        if check[coord] > 1:
-            print(coord)
-        if check[coord] == 0:
-            print(str(coord) + "none")
-    print(count)
+    # count = 0
+    # check = {}
+    # for row in range(34):
+    #     for col in range(31):
+    #         check[(row, col)] = 0
+    # for wall in floorOne.squares["wall"]:
+    #     count += 1
+    #     check[(wall.x, wall.y)] = check.get((wall.x, wall.y), 0) + 1
+    #     #print("(" + str(wall.x) + ", " + str(wall.y) + ")")
+    # for ex in floorOne.squares["exit"]:
+    #     count += 1
+    #     check[(ex.x, ex.y)] = check.get((ex.x, ex.y), 0) + 1
+    # for stair in floorOne.squares["stair"]:
+    #     count += 1
+    #     check[(stair.x, stair.y)] = check.get((stair.x, stair.y), 0) + 1
+    #     #print("(" + str(ex.x) + ", " + str(ex.y) + ")")
+    # for path in floorOne.squares["path"]:
+    #     count += 1
+    #     check[(path.x, path.y)] = check.get((path.x, path.y), 0) + 1
+    #     #print("(" + str(path.x) + ", " + str(path.y) + ")")
+    # for elevator in floorOne.squares["elevator"]:
+    #     count += 1
+    #     check[(elevator.x, elevator.y)] = check.get((elevator.x, elevator.y), 0) + 1
+    # for br in floorOne.squares["bathroom"]:
+    #     count += 1
+    #     check[(br.x, br.y)] = check.get((br.x, br.y), 0) + 1
+    # for room in floorOne.squares["Vending Machine/Recycling/ATM"]:
+    #     count += 1
+    #     check[(room.x, room.y)] = check.get((room.x, room.y), 0) + 1
+    # for kitchen in floorOne.squares["Cafe Kitchen"]:
+    #     count += 1
+    #     check[(kitchen.x, kitchen.y)] = check.get((kitchen.x, kitchen.y), 0) + 1
+    # for coord in check.keys():
+    #     if check[coord] > 1:
+    #         print(coord)
+    #     if check[coord] == 0:
+    #         print(str(coord) + "none")
+    # print(count)
 
 
     huangCenter.addFloor(floorOne, floorOne.level)
     return huangCenter
-generate()
+# generate()
