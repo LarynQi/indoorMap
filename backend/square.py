@@ -1,5 +1,6 @@
 class Square(object):
     valid = 1 #valid values of 1 > not passable, 0 = passable
+    accessible = 0
     def __init__(self, x, y): #can't do it with latitude, longitude 
         #self.plusCode = number #might not need this if we store the information at a plus code level
         self.x = x
@@ -21,17 +22,23 @@ class Path(Square):
 
 
 class Exit(Path):
-    def __init__ (self, x, y, name):
+    def __init__ (self, x, y, accessible, name):
         self.x = x
         self.y = y
         self.valid = 0
         self.name = name #used to distinguish what type of exit (elevator, exit, entrance) a certain Exit object is 
+        self.accessible = accessible
+
+    def makeSwitch(self, switchX, switchY):
+        self.switchX = switchX
+        self.switchY = switchY
         
 class Wall(Square):
     def __init__(self, x, y, name):
         self.x = x
         self.y = y
         self.name = "wall"
+        self.accessible = 1
 
 
 

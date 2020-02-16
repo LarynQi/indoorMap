@@ -1,10 +1,10 @@
 from utils import *
 class Building(object):
-    floors = {}
     def __init__(self, top_floor, bot_floor, name):
         self.top_floor = top_floor
         self.bot_floor = bot_floor
         self.name = name
+        self.floors = {}
     
     def addFloor(self, floor, level):
         self.floors[level] = floor

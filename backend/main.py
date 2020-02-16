@@ -4,11 +4,25 @@ from floor import *
 from square import *
 from buildingGenerator import *
 
-def main(start, destinationName, level, building): #start tuple contains lat/long, destination string
+HuangCenter = generateHuang()
+
+def main(start, destinationName, level, building, accessible): #start tuple contains lat/long, destination string
     # start = square.coordinate(start)
     currentFloor = building.floors[level]
     allSquares = currentFloor.squares
-    destinations = currentFloor.squares[destinationName] #need to calculate a
+
+    switchFloor = False
+
+    if destinationName not in currentFloor.landmarks:
+        switchFloor = True
+        if accessible:
+            destinations = currentFloor.squares["elevator"]
+        else:
+            destinations = currentFloor.squares["stair"] + currentFloor.squares["elevator"]
+    else:
+        destinations = currentFloor.squares[destinationName]
+    
+     #need to calculate a
     
     #mark down (0, 0) as the top, north west corner on the floor plans 
     floorPlan = []
@@ -21,7 +35,12 @@ def main(start, destinationName, level, building): #start tuple contains lat/lon
         for square in allSquares[squareType]:
             x = square.x
             y = square.y
-            floorPlan[x][y] = square.valid 
+            if not accessible:
+                floorPlan[x][y] = square.valid 
+            else:
+                floorPlan[x][y] = square.accessible
+    #print(floorPlan)
+    # print(floorPlan)
     # print(floorPlan)
     # print(currentFloor.length, currentFloor.width)
     #get the latitude/longitude of the entrance; make an arbitrary scale 
@@ -44,7 +63,7 @@ def main(start, destinationName, level, building): #start tuple contains lat/lon
     paths = []
     for destination in destinations:
         dX = destination.x
-        dY = destination.y
+        dY = destination.yß
         path = astar(floorPlan, start, (dX, dY))
     #print(path)
         paths.append(path)
@@ -57,8 +76,26 @@ def main(start, destinationName, level, building): #start tuple contains lat/lon
         if i + 1 != len(minPath):
             print("↓")
         else:
-            print("You've arrived at the " + destinationName + "!")
+            last = minPath[i]
+            if not switchFloor:
+                print("You've arrived at the " + destinationName + "!")
+    if switchFloor:
+        for squareType in allSquares.keys():
+            for square in allSquares[squareType]:
+                x = square.x
+                y = square.y
+                if (x, y) == last:
+                    if level == 0:
+                        return main((square.switchX, square.switchY), destinationName, 1, HuangCenter, accessible)
+                    else:
+                        return main((square.switchX, square.switchY), destinationName, 0, HuangCenter, accessible)
+
 
 
 if __name__ == '__main__':
-    main((15, 2), "Cafe Kitchen", 1, generateHuang()) #DEMO
+    #main((15, 2), "Cafe Kitchen", 1, generateHuang(), False) #DEMO
+    #main((15, 2), "lower", 1, generateHuang(), True)
+    #main((15, 42), 'stair', 0, generateHuang(), False)
+    #main((15, 2), 'NVIDIA', 1, generateHuang(), False)
+    main((15, 2), 'NVIDIA', 1, generateHuang(), True)
+    #main((30, 34), "NVIDIA", 0, HuangCenter, False)
