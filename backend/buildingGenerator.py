@@ -85,37 +85,74 @@ def generate():
             floorOne.addSquare(add, add.name)
 
     #hallway rightside exits
-    r28c15 = Exit(28, 15, "stair")
-    floorOne.addSquare(r28c15, r28c15.name)
-    r29c15 = Exit(29, 15, "stair")
-    floorOne.addSquare(r29c15, r28c15.name)
+    # for row in range(26, 28):
+    #     col = 15
+    #     add = Exit(row, col, "stair")
+    #     floorOne.addSquare(add, add.name)
 
-    r30c15 = Exit(28, 15, "elevator")
+    r26c15 = Exit(26, 15, "stair")
+    floorOne.addSquare(r26c15, r26c15.name)
+    r27c15 = Exit(27, 15, "stair")
+    floorOne.addSquare(r27c15, r27c15.name)
+
+    r28c15 = Exit(28, 15, "elevator")
+    floorOne.addSquare(r28c15, r28c15.name)
+    r29c15 = Exit(29, 15, "elevator")
+    floorOne.addSquare(r29c15, r29c15.name)
+    r30c15 = Exit(30, 15, "elevator")
     floorOne.addSquare(r30c15, r30c15.name)
-    r31c15 = Exit(29, 15, "elevator")
+
+    r31c15 = Exit(31, 15, "stair")
     floorOne.addSquare(r31c15, r31c15.name)
-    r32c15 = Exit(29, 15, "elevator")
+    r32c15 = Exit(32, 15, "stair")
     floorOne.addSquare(r32c15, r32c15.name)
 
-    r33c15 = Exit(33, 15, "stair")
+    #below these stairs ^
+    r33c15 = Wall(33, 15, "wall")
     floorOne.addSquare(r33c15, r33c15.name)
-    r34c15 = Exit(34, 15, "stair")
-    floorOne.addSquare(r34c15, r34c15.name)
+
+
+    #above cafe kitchen
+    for row in range(20, 23):
+        col = 15
+        add = Wall(row, col, "wall")
+        floorOne.addSquare(add, add.name)
 
     #rightside room
-    r21c15 = Exit(21, 15, "Cafe Kitchen")
-    floorOne.addSquare(r21c15, r21c15.name)
+    r23c15 = Exit(23, 15, "Cafe Kitchen")
+    floorOne.addSquare(r23c15, r23c15.name)
+
+    #between cafe kitchen and exits below (wall)
+    for row in range(24, 26):
+        col = 15
+        add = Wall(row, col, "wall")
+        floorOne.addSquare(add, add.name)
+
+    #above vending machine
+    for row in range(20, 23):
+        col = 13
+        add = Wall(row, col, "wall")
+        floorOne.addSquare(add, add.name)
 
     #leftside rooms
-    r20c13 = Exit(20, 13, "Vending Machine/Recycling/ATM")
-    floorOne.addSquare(r20c13, r20c13.name)
-    r21c13 = Exit(21, 13, "Vending Machine/Recycling/ATM")
-    floorOne.addSquare(r21c13, r21c13.name)
+    r23c13 = Exit(23, 13, "Vending Machine/Recycling/ATM")
+    floorOne.addSquare(r23c13, r23c13.name)
+    r24c13 = Exit(24, 13, "Vending Machine/Recycling/ATM")
+    floorOne.addSquare(r24c13, r24c13.name)
 
-    r25c13 = Exit(25, 13, "bathroom")
-    floorOne.addSquare(r25c13, r25c13.name)
-    r26c13 = Exit(26, 13, "bathroom")
-    floorOne.addSquare(r26c13, r26c13.name)
+    for row in range(25, 28):
+        col = 13
+        add = Wall(row, col, "wall")
+        floorOne.addSquare(add, add.name)
+
+    r28c13 = Exit(28, 13, "bathroom")
+    floorOne.addSquare(r28c13, r28c13.name)
+    r29c13 = Exit(29, 13, "bathroom")
+    floorOne.addSquare(r29c13, r29c13.name)
+    for row in range(30, 34):
+        col = 13
+        add = Wall(row, col, "wall")
+        floorOne.addSquare(add, add.name)
 
     #hallway path
     for row in range(19, 34):
@@ -167,7 +204,7 @@ def generate():
             floorOne.addSquare(add, add.name)
     
     #bottom right rectangle left of right
-    for row in range(19, 25):
+    for row in range(20, 25):
         for col in range(16, 19):
             add = Wall(row, col, "wall")
             floorOne.addSquare(add, add.name)
@@ -208,7 +245,7 @@ def generate():
             add = Path(row, col, True, "path")
             floorOne.addSquare(add, add.name)
     
-    #line of wall surrounding hallway entrance
+    #line of wall surrounding hallway entrance ***
     for col in range(9, 19):
         row = 19
         if col != 14:
@@ -228,41 +265,69 @@ def generate():
             floorOne.addSquare(add, add.name)
     
     #two filler in brown
-    for col in range(9, 11):
-        row = 19
-        add = Wall(row, col, "wall")
-        floorOne.addSquare(add, add.name)
+    # for col in range(9, 11):
+    #     row = 19
+    #     add = Wall(row, col, "wall")
+    #     floorOne.addSquare(add, add.name)
         
+    #triangle near removed elevator
     for row in range(19, 22):
         for col in range(2 + (row - 19), 5):
             add = Wall(row, col, "wall")
             floorOne.addSquare(add, add.name)
     
-    fillerR = 25
-    fillerC = 16
-    addFiller = Wall(fillerR, fillerC, "wall")
-    floorOne.addSquare(addFiller, addFiller.name)
+    # fillerR = 25
+    # fillerC = 16
+    # addFiller = Wall(fillerR, fillerC, "wall")
+    # floorOne.addSquare(addFiller, addFiller.name)
     #print(floorOne.squares)
+
+    # walls behind rightside hallway exits
+    
+    for row in range(25, 34):
+        col = 16
+        add = Wall(row, col, "wall")
+        floorOne.addSquare(add, add.name)
     count = 0
+    check = {}
+    for row in range(34):
+        for col in range(31):
+            check[(row, col)] = 0
     for wall in floorOne.squares["wall"]:
         count += 1
+        check[(wall.x, wall.y)] = check.get((wall.x, wall.y), 0) + 1
         #print("(" + str(wall.x) + ", " + str(wall.y) + ")")
     for ex in floorOne.squares["exit"]:
         count += 1
+        check[(ex.x, ex.y)] = check.get((ex.x, ex.y), 0) + 1
+    for stair in floorOne.squares["stair"]:
+        count += 1
+        check[(stair.x, stair.y)] = check.get((stair.x, stair.y), 0) + 1
         #print("(" + str(ex.x) + ", " + str(ex.y) + ")")
     for path in floorOne.squares["path"]:
         count += 1
+        check[(path.x, path.y)] = check.get((path.x, path.y), 0) + 1
         #print("(" + str(path.x) + ", " + str(path.y) + ")")
     for elevator in floorOne.squares["elevator"]:
         count += 1
+        check[(elevator.x, elevator.y)] = check.get((elevator.x, elevator.y), 0) + 1
     for br in floorOne.squares["bathroom"]:
         count += 1
+        check[(br.x, br.y)] = check.get((br.x, br.y), 0) + 1
     for room in floorOne.squares["Vending Machine/Recycling/ATM"]:
         count += 1
+        check[(room.x, room.y)] = check.get((room.x, room.y), 0) + 1
     for kitchen in floorOne.squares["Cafe Kitchen"]:
         count += 1
+        check[(kitchen.x, kitchen.y)] = check.get((kitchen.x, kitchen.y), 0) + 1
+    for coord in check.keys():
+        if check[coord] > 1:
+            print(coord)
+        if check[coord] == 0:
+            print(str(coord) + "none")
     print(count)
 
 
     huangCenter.addFloor(floorOne, floorOne.level)
+    return huangCenter
 generate()

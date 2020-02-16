@@ -6,8 +6,8 @@ class Floor(object):
     squares = {}
     def __init__(self, level, width, length): 
         self.level = level 
-        self.width = width #x
-        self.length = length #y
+        self.width = width #col
+        self.length = length #row
 
     def addSquare(self, add, name):
         self.squares[name] = self.squares.get(name, []) + [add]
