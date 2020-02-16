@@ -11,16 +11,39 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="umaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="qn7-L9-xlR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="54o-5o-jL9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gnd-gs-zpv"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w9L-Hn-net" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="94" width="414" height="802"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="54o-5o-jL9" firstAttribute="trailing" secondItem="vX9-pE-g54" secondAttribute="trailing" id="6rZ-zG-VQ5"/>
+                            <constraint firstItem="54o-5o-jL9" firstAttribute="leading" secondItem="vX9-pE-g54" secondAttribute="leading" id="MOf-T6-aOf"/>
+                            <constraint firstItem="54o-5o-jL9" firstAttribute="top" secondItem="vX9-pE-g54" secondAttribute="top" id="phf-Qy-Sl5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vX9-pE-g54"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="w9L-Hn-net" id="IQF-Ek-G5I"/>
+                        <outlet property="searchBar" destination="54o-5o-jL9" id="fZv-nK-fb7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1" y="126"/>
+            <point key="canvasLocation" x="-38" y="-43"/>
         </scene>
     </scenes>
 </document>

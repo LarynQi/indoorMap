@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 class Square {
+    
 //    static func == (lhs: Square, rhs: Square) -> Bool {
 //            return lhs.valid == rhs.valid
 //                && lhs.plusCode == rhs.plusCode
@@ -18,39 +19,45 @@ class Square {
 //                && lhs.floorNumber == rhs.floorNumber//idk check
 //    }
     
-    var valid: Bool
-    var plusCode: String
+    var valid: Int
     var color: UIColor
-    var size: Double
     var floorNumber: Int
+    var xPos: Int
+    var yPos: Int
     
-    init(valid: Bool, plusCode: String, size: Double, floorNumber: Int){
+    init(valid: Int, color: UIColor, floorNumber: Int, x: Int, y: Int){
         self.valid = valid
-        self.plusCode = plusCode
-        self.size = size
-        self.color = UIColor.clear
+        self.color = color 
         self.floorNumber = floorNumber
+        self.xPos = x
+        self.yPos = y
     }
+}
+
+class Wall: Square {
     
+    override init(valid: Int, color: UIColor, floorNumber: Int, x: Int, y: Int){
+        super.init(valid: valid, color:color, floorNumber: floorNumber, x: x, y: y)
+       }
 }
 
 class Room: Square {
     var name: String
     var icon: String //image url or UImage? we shall see
     
-    init(valid: Bool, plusCode: String, size: Double, name: String, icon: String, floorNumber: Int){
+    init(valid: Int, color: UIColor, name: String, icon: String, floorNumber: Int, x: Int, y: Int){
         self.name = name
         self.icon = icon
-        super.init(valid: valid, plusCode: plusCode, size: size, floorNumber: floorNumber)
+        super.init(valid: valid, color:color, floorNumber: floorNumber, x: x, y: y)
     }
 }
 
 class HallwayPath: Square {
-    var accessible: Bool
+    var accessible: Int
     
-    init(valid: Bool, plusCode: String, size: Double, name: String, icon: String, accessible: Bool, floorNumber: Int){
+    init(valid: Int, name: String, color: UIColor, icon: String, accessible: Int, floorNumber: Int, x: Int, y: Int){
         self.accessible = accessible
-        super.init(valid: valid, plusCode: plusCode, size: size, floorNumber: floorNumber)
+        super.init(valid: valid, color: color, floorNumber: floorNumber, x: x, y: y)
     }
 }
 
