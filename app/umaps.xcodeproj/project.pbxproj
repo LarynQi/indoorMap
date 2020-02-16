@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30B004F545CB7537D8135CAC /* libPods-umaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FD94FA3B91DA88AF7A9BF6 /* libPods-umaps.a */; };
 		880315F123F86EE100A50C84 /* Firebase_Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880315F023F86EE100A50C84 /* Firebase_Code.swift */; };
+		888BCC7523F8F86D008905BF /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BCC7423F8F86D008905BF /* Square.swift */; };
+		90A7208A2E0A66DECDB0EA7E /* Pods_umaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379D0247047760AEDA685C7D /* Pods_umaps.framework */; };
 		CFEA015B23F7BAC500C93CD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA015A23F7BAC500C93CD2 /* AppDelegate.swift */; };
 		CFEA015D23F7BAC500C93CD2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA015C23F7BAC500C93CD2 /* SceneDelegate.swift */; };
 		CFEA015F23F7BAC500C93CD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA015E23F7BAC500C93CD2 /* ViewController.swift */; };
@@ -19,10 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		57FD94FA3B91DA88AF7A9BF6 /* libPods-umaps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-umaps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		379D0247047760AEDA685C7D /* Pods_umaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_umaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6152E3A58D7EFB274435AC41 /* Pods-umaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-umaps.release.xcconfig"; path = "Target Support Files/Pods-umaps/Pods-umaps.release.xcconfig"; sourceTree = "<group>"; };
 		8152A171576043C2ED97910D /* Pods-umaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-umaps.debug.xcconfig"; path = "Target Support Files/Pods-umaps/Pods-umaps.debug.xcconfig"; sourceTree = "<group>"; };
 		880315F023F86EE100A50C84 /* Firebase_Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase_Code.swift; sourceTree = SOURCE_ROOT; };
+		888BCC7423F8F86D008905BF /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
 		CFEA015723F7BAC500C93CD2 /* umaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFEA015A23F7BAC500C93CD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFEA015C23F7BAC500C93CD2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30B004F545CB7537D8135CAC /* libPods-umaps.a in Frameworks */,
+				90A7208A2E0A66DECDB0EA7E /* Pods_umaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +60,7 @@
 		B07A8410703A4B0AF524641B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				57FD94FA3B91DA88AF7A9BF6 /* libPods-umaps.a */,
+				379D0247047760AEDA685C7D /* Pods_umaps.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -89,6 +91,7 @@
 				CFEA015C23F7BAC500C93CD2 /* SceneDelegate.swift */,
 				CFEA015E23F7BAC500C93CD2 /* ViewController.swift */,
 				CFEA016023F7BAC500C93CD2 /* Main.storyboard */,
+				888BCC7423F8F86D008905BF /* Square.swift */,
 				CFEA016323F7BAC600C93CD2 /* Assets.xcassets */,
 				CFEA016523F7BAC600C93CD2 /* LaunchScreen.storyboard */,
 				CFEA016823F7BAC600C93CD2 /* Info.plist */,
@@ -108,7 +111,8 @@
 				CFEA015323F7BAC500C93CD2 /* Sources */,
 				CFEA015423F7BAC500C93CD2 /* Frameworks */,
 				CFEA015523F7BAC500C93CD2 /* Resources */,
-				41EF1BCC5C605D1BDC1220E0 /* [CP] Copy Pods Resources */,
+				ACD2A8E9EB72864A348EAF1A /* [CP] Embed Pods Frameworks */,
+				DD554BB9C0A6FA1FD99EDD3B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,7 +193,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		41EF1BCC5C605D1BDC1220E0 /* [CP] Copy Pods Resources */ = {
+		ACD2A8E9EB72864A348EAF1A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-umaps/Pods-umaps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-umaps/Pods-umaps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-umaps/Pods-umaps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD554BB9C0A6FA1FD99EDD3B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -213,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				888BCC7523F8F86D008905BF /* Square.swift in Sources */,
 				CFEA015F23F7BAC500C93CD2 /* ViewController.swift in Sources */,
 				880315F123F86EE100A50C84 /* Firebase_Code.swift in Sources */,
 				CFEA015B23F7BAC500C93CD2 /* AppDelegate.swift in Sources */,
