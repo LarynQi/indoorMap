@@ -2,13 +2,16 @@ platform :ios, '12.0'
 
 target 'umaps' do
   # Comment the next line if you don't want to use dynamic frameworks
-  #use_frameworks!
+  use_frameworks!
 
-   use_modular_headers!
+   #use_modular_headers!
 
   # Pods for umaps
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Core'
+  pod 'Firebase/Analytics'
 
 end
