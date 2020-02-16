@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+import Firebase
+
+
+/*
+import FirebaseDatabase
+import Firebase
+
+var ref : DatabaseReference!
+
+func initDatabase() {
+    ref = Database.database().reference()
+}
+*/
+
+
+
+

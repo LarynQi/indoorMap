@@ -10,5 +10,8 @@ target 'umaps' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Core'
+  pod 'Firebase/Analytics'
 
 end
