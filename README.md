@@ -1,6 +1,6 @@
 # uMaps
 
-*Reimagining the indoors*
+*Reimagining the indoors*\
 **TreeHacks 2020**
 
 ## Stack
