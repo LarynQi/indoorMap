@@ -63,7 +63,7 @@ def main(start, destinationName, level, building, accessible): #start tuple cont
     paths = []
     for destination in destinations:
         dX = destination.x
-        dY = destination.yß
+        dY = destination.y
         path = astar(floorPlan, start, (dX, dY))
     #print(path)
         paths.append(path)
