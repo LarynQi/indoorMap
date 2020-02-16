@@ -1,33 +1,50 @@
 class Square(object):
     valid = 1 #valid values of 1 > not passable, 0 = passable
+    accessible = 0
     def __init__(self, x, y): #can't do it with latitude, longitude 
         #self.plusCode = number #might not need this if we store the information at a plus code level
-        self.x = x; 
-        self.y = y; 
+        self.x = x
+        self.y = y 
     
     def coordinate(loc): #location is a tuple with latitude, longitude 
         return tuple
+    
+    # def __str__():
+    #     return ""
 
 class Path(Square):
-    def __init__(self, accessible, start, end):
+    def __init__(self, x, y, accessible, name):
+        self.x = x
+        self.y = y
         self.accessible = accessible
         self.valid = 0
-        self.name = "path"
+        self.name = name
 
 
-class Exit(Paths):
-    def __init__ (self, name):
+class Exit(Path):
+    def __init__ (self, x, y, accessible, name):
+        self.x = x
+        self.y = y
         self.valid = 0
         self.name = name #used to distinguish what type of exit (elevator, exit, entrance) a certain Exit object is 
+        self.accessible = accessible
+
+    def makeSwitch(self, switchX, switchY):
+        self.switchX = switchX
+        self.switchY = switchY
         
 class Wall(Square):
-    def __init__(self):
+    def __init__(self, x, y, name):
+        self.x = x
+        self.y = y
         self.name = "wall"
+        self.accessible = 1
 
 
-class Room (Path):
-    def __init__(self, name):
-        self.name = name
+
+# class Room (Path):
+#     def __init__(self, name):
+#         self.name = name
         
     #NUMBER = PLUS CODE COORDINATE
     #
