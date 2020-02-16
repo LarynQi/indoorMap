@@ -3,13 +3,58 @@ from building import *
 from floor import *
 from square import *
 from buildingGenerator import *
+#from google.cloud import firestore
 
 HuangCenter = generateHuang()
 
-def main(start, destinationName, level, building, accessible): #start tuple contains lat/long, destination string
+def main(start, destinationName, level, building, accessible, sofar): #start tuple contains lat/long, destination string
     # start = square.coordinate(start)
     currentFloor = building.floors[level]
     allSquares = currentFloor.squares
+
+    # def sendRooms():
+    # # Project ID is determined by the GCLOUD_PROJECT environment variable
+    #     db = firestore.Client()
+
+    # # export GOOGLE_APPLICATION_CREDENTIALS="/Users/SahilMehta/Downloads/UMaps_Firestore.json"
+    
+    #     count = 0
+    #     for key in allSquares:
+    #         #print(type(allSquares[s]))
+    #         for room in allSquares[key]:
+    #             if count > 25:
+    #                 break
+    #             doc_ref = db.collection(u'Floor0').document(room.name + str(count))
+    #             doc_ref.set({
+    #                 u'x': room.x,
+    #                 u'y': room.y,
+    #                 u'accessible' : room.accessible,
+    #                 u'valid' : room.valid,
+    #                 u'name' : room.name
+    #             })
+    #             count += 1
+    # sendRooms()
+
+    # def sendRooms():
+    # # Project ID is determined by the GCLOUD_PROJECT environment variable
+    #     db = firestore.Client()
+
+    # # export GOOGLE_APPLICATION_CREDENTIALS="/Users/SahilMehta/Downloads/UMaps_Firestore.json"
+    
+    #     count = 0
+    #     for key in allSquares:
+    #         #print(type(allSquares[s]))
+    #         for room in allSquares[key]:
+    #             doc_ref = db.collection(u'Floor1').document(room.name + str(count))
+    #             doc_ref.set({
+    #                 u'x': room.x,
+    #                 u'y': room.y,
+    #                 u'accessible' : room.accessible,
+    #                 u'valid' : room.valid,
+    #                 u'name' : room.name
+    #             })
+    #             count += 1
+    # sendRooms()
 
     switchFloor = False
 
@@ -74,10 +119,12 @@ def main(start, destinationName, level, building, accessible): #start tuple cont
     for i in range(len(minPath)):
         print(minPath[i])
         if i + 1 != len(minPath):
+           # continue
             print("↓")
         else:
             last = minPath[i]
             if not switchFloor:
+                #continue
                 print("You've arrived at the " + destinationName + "!")
     if switchFloor:
         for squareType in allSquares.keys():
@@ -86,16 +133,19 @@ def main(start, destinationName, level, building, accessible): #start tuple cont
                 y = square.y
                 if (x, y) == last:
                     if level == 0:
-                        return main((square.switchX, square.switchY), destinationName, 1, HuangCenter, accessible)
+                        return main((square.switchX, square.switchY), destinationName, 1, HuangCenter, accessible, minPath + [(-1, 1)])
                     else:
-                        return main((square.switchX, square.switchY), destinationName, 0, HuangCenter, accessible)
+                        return main((square.switchX, square.switchY), destinationName, 0, HuangCenter, accessible, minPath + [(-1, 0)])
+    print(sofar + minPath)
+    return sofar + minPath
 
 
 
 if __name__ == '__main__':
-    #main((15, 2), "Cafe Kitchen", 1, generateHuang(), False) #DEMO
-    #main((15, 2), "lower", 1, generateHuang(), True)
-    #main((15, 42), 'stair', 0, generateHuang(), False)
-    #main((15, 2), 'NVIDIA', 1, generateHuang(), False)
-    main((15, 2), 'NVIDIA', 1, generateHuang(), True)
-    #main((30, 34), "NVIDIA", 0, HuangCenter, False)
+    #main((15, 2), "Cafe Kitchen", 1, generateHuang(), False, []) #DEMO
+    #main((15, 2), "lower", 1, generateHuang(), True, [])
+    #main((15, 42), 'stair', 0, generateHuang(), False, [])
+    #main((15, 2), 'NVIDIA', 1, generateHuang(), False, [])
+    main((15, 2), 'NVIDIA', 1, generateHuang(), True, [])
+    #main((30, 34), "NVIDIA", 0, HuangCenter, False, [])
+    #main((15, 2), 'bathroom', 1, HuangCenter, True, [])
