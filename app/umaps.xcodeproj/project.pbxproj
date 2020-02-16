@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30B004F545CB7537D8135CAC /* libPods-umaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57FD94FA3B91DA88AF7A9BF6 /* libPods-umaps.a */; };
+		123B4E8E45471E8E45487859 /* Pods_umaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FA5686ABB002F426C6EB1E /* Pods_umaps.framework */; };
+		CF6D016E23F862D200F4EE2F /* Square.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6D016D23F862D200F4EE2F /* Square.swift */; };
 		CFEA015B23F7BAC500C93CD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA015A23F7BAC500C93CD2 /* AppDelegate.swift */; };
 		CFEA015D23F7BAC500C93CD2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA015C23F7BAC500C93CD2 /* SceneDelegate.swift */; };
 		CFEA015F23F7BAC500C93CD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEA015E23F7BAC500C93CD2 /* ViewController.swift */; };
@@ -18,9 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		57FD94FA3B91DA88AF7A9BF6 /* libPods-umaps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-umaps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6152E3A58D7EFB274435AC41 /* Pods-umaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-umaps.release.xcconfig"; path = "Target Support Files/Pods-umaps/Pods-umaps.release.xcconfig"; sourceTree = "<group>"; };
+		66FA5686ABB002F426C6EB1E /* Pods_umaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_umaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8152A171576043C2ED97910D /* Pods-umaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-umaps.debug.xcconfig"; path = "Target Support Files/Pods-umaps/Pods-umaps.debug.xcconfig"; sourceTree = "<group>"; };
+		CF6D016D23F862D200F4EE2F /* Square.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Square.swift; sourceTree = "<group>"; };
 		CFEA015723F7BAC500C93CD2 /* umaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFEA015A23F7BAC500C93CD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFEA015C23F7BAC500C93CD2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30B004F545CB7537D8135CAC /* libPods-umaps.a in Frameworks */,
+				123B4E8E45471E8E45487859 /* Pods_umaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +58,7 @@
 		B07A8410703A4B0AF524641B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				57FD94FA3B91DA88AF7A9BF6 /* libPods-umaps.a */,
+				66FA5686ABB002F426C6EB1E /* Pods_umaps.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -85,6 +87,7 @@
 				CFEA015A23F7BAC500C93CD2 /* AppDelegate.swift */,
 				CFEA015C23F7BAC500C93CD2 /* SceneDelegate.swift */,
 				CFEA015E23F7BAC500C93CD2 /* ViewController.swift */,
+				CF6D016D23F862D200F4EE2F /* Square.swift */,
 				CFEA016023F7BAC500C93CD2 /* Main.storyboard */,
 				CFEA016323F7BAC600C93CD2 /* Assets.xcassets */,
 				CFEA016523F7BAC600C93CD2 /* LaunchScreen.storyboard */,
@@ -106,6 +109,7 @@
 				CFEA015423F7BAC500C93CD2 /* Frameworks */,
 				CFEA015523F7BAC500C93CD2 /* Resources */,
 				41EF1BCC5C605D1BDC1220E0 /* [CP] Copy Pods Resources */,
+				AB56F9D8E68D007F50045F7B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,6 +207,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-umaps/Pods-umaps-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AB56F9D8E68D007F50045F7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-umaps/Pods-umaps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-umaps/Pods-umaps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-umaps/Pods-umaps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -210,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF6D016E23F862D200F4EE2F /* Square.swift in Sources */,
 				CFEA015F23F7BAC500C93CD2 /* ViewController.swift in Sources */,
 				CFEA015B23F7BAC500C93CD2 /* AppDelegate.swift in Sources */,
 				CFEA015D23F7BAC500C93CD2 /* SceneDelegate.swift in Sources */,
