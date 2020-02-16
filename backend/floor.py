@@ -1,5 +1,5 @@
-import square
-import utils 
+from square import *
+from utils import *
 
 #map names to list of every square w/ that name, i.e. elevators to all elevators 
 class Floor(object):
@@ -9,8 +9,8 @@ class Floor(object):
         self.width = width #x
         self.length = length #y
 
-    def addSquare(add, name):
-        squares[name] = squares.get(name, []) + add
+    def addSquare(self, add, name):
+        self.squares[name] = self.squares.get(name, []) + [add]
     
     def removeSquare(rem): #new must be 
         if isinstance(rem, Square):

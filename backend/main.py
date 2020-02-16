@@ -1,11 +1,11 @@
-import fill
-import building
-import floor
-import square
+from fill import *
+from building import *
+from floor import *
+from square import *
 
 def main(start, destinationName, level, building): #start tuple contains lat/long, destination string
     start = square.coordinate(start)
-    currentFloor = building.floors[level]
+    currentFloor = building.floors[lsevel]
     allSquares = currentFloors.squares
     destinations = currentFloor.squares[destinationName] #need to calculate a
     
