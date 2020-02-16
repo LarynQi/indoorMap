@@ -1,7 +1,7 @@
 # uMaps
 
-Reimagining the indoors 
-(TreeHacks 2020)
+_ Reimagining the indoors _
+**TreeHacks 2020**
 
 ## Stack
 * Swift
