@@ -10,7 +10,7 @@ class Floor(object):
         squares[pluscode] = new
     
     def removeSquare(rem): #new must be 
-        if rem.type() == Square:
+        if isinstance(rem) == Square:
             key = squares.getKey(rem)
             del squares[key]
         else if rem.type() == String: #pluscode type, might change

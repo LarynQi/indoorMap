@@ -9,8 +9,15 @@ class Building(object):
         floors[level] = floor
 
     def removeFloor(val):
-        if val.type() == Floor:
+        if isinstance(val) == Floor:
             key = getKey(floor, floors)
             del floors[key]
         else if val.type() == int:
             del floors[val]
+    
+    def generateFloors(floors):
+
+
+        #generate by adding one at a time? 
+        #plusCode
+        # 
